@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, LineChart, Line, PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 import { Calendar, DollarSign, Clock, CheckCircle, AlertTriangle, Filter } from 'lucide-react';
 
@@ -307,7 +307,7 @@ const TelecomInvoiceDashboard = () => {
                   cx="50%"
                   cy="50%"
                   labelLine={false}
-                  label={({ vendor, percent }) => `${vendor} ${(percent * 100).toFixed(1)}%`}
+                  label={({ vendor, percent }) => `${vendor} ${(percent as number * 100).toFixed(1)}%`}
                   outerRadius={120}
                   fill="#8884d8"
                   dataKey="totalAmount"
@@ -317,7 +317,7 @@ const TelecomInvoiceDashboard = () => {
                   ))}
                 </Pie>
                 <Tooltip 
-                  formatter={(value) => [`$${(value / 1000).toFixed(0)}K`, 'Total Amount']}
+                  formatter={(value: any) => [`$${(value / 1000).toFixed(0)}K`, 'Total Amount']}
                   contentStyle={{ 
                     backgroundColor: '#f8fafc', 
                     border: '1px solid #e2e8f0',
